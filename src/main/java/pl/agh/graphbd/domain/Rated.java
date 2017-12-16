@@ -17,4 +17,28 @@ public class Rated {
 
     @EndNode
     private Post post;
+
+    public Rated() { }
+
+    public Rated(int stars, User user, Post post) {
+        this.stars = stars;
+        this.user = user;
+        this.post = post;
+    }
+
+    public void setStars(int stars) {
+        this.stars = stars;
+    }
+
+    public int getStars() {
+        return stars;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Post getPost() {
+        return post;
+    }
 }

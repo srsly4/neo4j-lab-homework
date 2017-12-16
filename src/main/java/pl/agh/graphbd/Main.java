@@ -20,6 +20,8 @@ public class Main {
         commandMap.put('a', new AddUserCommand());
         commandMap.put('o', new AddObervesRelationCommand());
         commandMap.put('f', new ShowUserRelationsCommand());
+        commandMap.put('p', new ShowPostsCommand());
+        commandMap.put('l', new AddPostCommand());
 
 //        User testUser = new User("Test", "Testowy");
 //        session.save(testUser);

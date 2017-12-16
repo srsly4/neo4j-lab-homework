@@ -26,6 +26,9 @@ public class User {
     @Relationship(type = "OBSERVES")
     private Set<Observes> observedUsers = new HashSet<>();
 
+    @Relationship(type = "RATED")
+    private Set<Rated> ratings = new HashSet<>();
+
     public User() { }
 
     public User(String firstName, String lastName) {
@@ -55,6 +58,14 @@ public class User {
 
     public Set<Observes> getObservedUsers() {
         return observedUsers;
+    }
+
+    public Set<Post> getPosts() {
+        return posts;
+    }
+
+    public Set<Rated> getRatings() {
+        return ratings;
     }
 
     @Override
