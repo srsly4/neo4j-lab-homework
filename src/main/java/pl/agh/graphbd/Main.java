@@ -22,13 +22,9 @@ public class Main {
         commandMap.put('f', new ShowUserRelationsCommand());
         commandMap.put('p', new ShowPostsCommand());
         commandMap.put('l', new AddPostCommand());
+        commandMap.put('r', new AddRatedRelationCommand());
+        commandMap.put('d', new TruncateDatabaseCommand());
 
-//        User testUser = new User("Test", "Testowy");
-//        session.save(testUser);
-//
-//        System.out.println("All persons:");
-//        Collection<User> users = session.loadAll(User.class);
-//        users.forEach(user -> System.out.println(user.getFirstName() + ' ' + user.getLastName()));
 
         System.out.println("Neo4J lab homework - Szymon Piechaczek");
         commandLoop();
@@ -42,7 +38,7 @@ public class Main {
                 System.out.println(String.format("[%c] - %s", character, cmd.getDescription()));
             });
 
-            System.out.println("=> ");
+            System.out.print("=> ");
             boolean scanned = false;
             while (!scanned || current == '\n') {
                 scanned = true;

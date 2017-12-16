@@ -14,6 +14,7 @@ public class ShowPostsCommand extends Command {
         Collection<Post> posts = session.loadAll(Post.class);
         List<Post> sorted = new ArrayList<>(posts);
         sorted.sort(Comparator.comparing(Post::getCreated));
+        sorted.forEach((post) -> System.out.println(post.toString()));
     }
 
     @Override

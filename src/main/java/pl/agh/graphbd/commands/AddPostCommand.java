@@ -15,7 +15,7 @@ public class AddPostCommand extends Command {
         String content = input.getLine();
         System.out.println("Enter post userId:");
         Long userId = Long.parseLong(input.getLine());
-        System.out.println(Dao.createPost(session, content, userId).toString());
+        System.out.println(Dao.createPost(session, content, userId, new Date()).toString());
     }
 
     @Override

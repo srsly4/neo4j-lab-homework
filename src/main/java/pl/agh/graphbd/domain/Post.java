@@ -23,7 +23,7 @@ public class Post {
     private User author;
 
     @Relationship(type= "RATED", direction=Relationship.INCOMING)
-    Set<Rated> ratings = new HashSet<>();
+    private Set<Rated> ratings = new HashSet<>();
 
     public Post() {
 
@@ -35,13 +35,27 @@ public class Post {
         this.author = author;
     }
 
+    public String getRatingsString() {
+        StringBuilder ret = new StringBuilder();
+        this.getRatings().forEach((rating) -> {
+            ret.append(String.format("%d by %s %s, ",
+                    rating.getStars(),
+                    rating.getUser().getFirstName(),
+                    rating.getUser().getLastName()
+                    ));
+        });
+        return ret.toString();
+    }
+
     @Override
     public String toString() {
-        return String.format("--- Posted by: %s %s on: %s ---\n%s\n------",
+        return String.format("--- [%d] Posted by: %s %s on: %s ---\n%s\n--- Ratings ---\n%s\n------",
+                this.getId(),
                 this.author.getFirstName(),
                 this.author.getLastName(),
                 this.created.toString(),
-                this.content
+                this.getContent(),
+                this.getRatingsString()
         );
     }
 

@@ -1,13 +1,13 @@
 package pl.agh.graphbd.domain;
 
 
-import org.neo4j.ogm.annotation.EndNode;
-import org.neo4j.ogm.annotation.Property;
-import org.neo4j.ogm.annotation.RelationshipEntity;
-import org.neo4j.ogm.annotation.StartNode;
+import org.neo4j.ogm.annotation.*;
 
 @RelationshipEntity(type = "RATED")
 public class Rated {
+
+    @GraphId
+    private Long id;
 
     @Property
     private int stars;

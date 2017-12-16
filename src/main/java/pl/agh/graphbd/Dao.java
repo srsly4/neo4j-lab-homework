@@ -3,6 +3,7 @@ package pl.agh.graphbd;
 import org.neo4j.ogm.session.Session;
 import pl.agh.graphbd.domain.Observes;
 import pl.agh.graphbd.domain.Post;
+import pl.agh.graphbd.domain.Rated;
 import pl.agh.graphbd.domain.User;
 
 import java.util.Collection;
@@ -16,8 +17,8 @@ public class Dao {
         return user;
     }
 
-    public static Post createPost(Session session, String content, Long userId) {
-        Post post = new Post(content, new Date(), session.load(User.class, userId));
+    public static Post createPost(Session session, String content, Long userId, Date date) {
+        Post post = new Post(content, date, session.load(User.class, userId));
         session.save(post);
         return post;
     }
@@ -33,5 +34,18 @@ public class Dao {
         Observes observes = new Observes(new Date(), user, observedUser);
         session.save(observes);
         return observes;
+    }
+
+    public static Rated createRatedRelation(Session session, Long userId, Long postId, int stars) {
+        User user = session.load(User.class, userId);
+        Post post = session.load(Post.class, postId);
+
+        if (user == null || post == null) {
+            return null;
+        }
+
+        Rated rated = new Rated(stars, user, post);
+        session.save(rated);
+        return rated;
     }
 }
