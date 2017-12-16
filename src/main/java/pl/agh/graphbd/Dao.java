@@ -58,4 +58,12 @@ public class Dao {
         Result res = session.query(query, Collections.EMPTY_MAP);
         return res;
     }
+
+    public static Result getPathBetweenNodes(Session session, Long aId, Long bId) {
+        String query = String.format("MATCH path=shortestPath((a)-[*]-(b))" +
+                " WHERE ID(a) = %d AND ID(b) = %d RETURN a, b, " +
+                " LABELS(a) AS alabel, LABELS(b) AS blabel, nodes(path) AS npath, rels(path) AS rpath LIMIT 1", aId, bId);
+        Result res = session.query(query, Collections.EMPTY_MAP);
+        return res;
+    }
 }

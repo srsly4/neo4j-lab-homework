@@ -26,10 +26,10 @@ public class Main {
         commandMap.put('d', new TruncateDatabaseCommand());
         commandMap.put('m', new PopulateDatabaseCommand());
         commandMap.put('e', new ShowNodeRelationsCommmand());
+        commandMap.put('v', new FindPathCommand());
 
 
         System.out.println("Neo4J lab homework - Szymon Piechaczek");
-        Dao.getRelations(session, 80L);
         commandLoop();
     }
 
