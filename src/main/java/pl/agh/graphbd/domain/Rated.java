@@ -41,4 +41,12 @@ public class Rated {
     public Post getPost() {
         return post;
     }
+
+    @Override
+    public String toString() {
+        return "Rated{" +
+                "id=" + id +
+                ", stars=" + stars +
+                '}';
+    }
 }

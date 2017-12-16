@@ -49,6 +49,14 @@ public class Post {
 
     @Override
     public String toString() {
+        if (this.author == null) {
+            return String.format("--- [%d] Posted on: %s ---\n%s\n--- Ratings ---\n%s\n------",
+                    this.getId(),
+                    this.created.toString(),
+                    this.getContent(),
+                    this.getRatingsString()
+            );
+        }
         return String.format("--- [%d] Posted by: %s %s on: %s ---\n%s\n--- Ratings ---\n%s\n------",
                 this.getId(),
                 this.author.getFirstName(),
