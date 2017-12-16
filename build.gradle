@@ -1,0 +1,30 @@
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'pl.agh.graphbd.Main'
+
+sourceCompatibility = 1.8
+def neo4jVersion = "3.3.1"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.neo4j:neo4j:${neo4jVersion}"
+    compile 'org.neo4j:neo4j-ogm-core:3.0.0'
+//    runtime 'org.neo4j:neo4j-ogm-http-driver:3.0.0' // Only add if you're using the HTTP driver
+    runtime 'org.neo4j:neo4j-ogm-embedded-driver:3.0.0' //  Only add if you're using the Embedded driver
+//    runtime 'org.neo4j:neo4j-ogm-bolt-driver:3.0.0' // Only add if you're using the Bolt driver
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+run {
+    standardInput = System.in
+}
+
+jar {
+    baseName = 'graphbd-exec'
+    version =  '0.1.0'
+}
