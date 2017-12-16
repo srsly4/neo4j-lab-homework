@@ -14,6 +14,8 @@ repositories {
 dependencies {
     compile "org.neo4j:neo4j:${neo4jVersion}"
     compile 'org.neo4j:neo4j-ogm-core:3.0.0'
+    // https://mvnrepository.com/artifact/org.fluttercode.datafactory/datafactory
+    compile group: 'org.fluttercode.datafactory', name: 'datafactory', version: '0.8'
 //    runtime 'org.neo4j:neo4j-ogm-http-driver:3.0.0' // Only add if you're using the HTTP driver
     runtime 'org.neo4j:neo4j-ogm-embedded-driver:3.0.0' //  Only add if you're using the Embedded driver
 //    runtime 'org.neo4j:neo4j-ogm-bolt-driver:3.0.0' // Only add if you're using the Bolt driver

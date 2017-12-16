@@ -24,6 +24,7 @@ public class Main {
         commandMap.put('l', new AddPostCommand());
         commandMap.put('r', new AddRatedRelationCommand());
         commandMap.put('d', new TruncateDatabaseCommand());
+        commandMap.put('m', new PopulateDatabaseCommand());
 
 
         System.out.println("Neo4J lab homework - Szymon Piechaczek");

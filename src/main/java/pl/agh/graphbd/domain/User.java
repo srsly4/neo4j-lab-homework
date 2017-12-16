@@ -68,6 +68,10 @@ public class User {
         return ratings;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return String.format("%d, %s %s Observed: %d, Observers: %d",
